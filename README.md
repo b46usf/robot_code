@@ -23,12 +23,12 @@ pip install -r requirements.txt
 
 1. Clone repositori ini ke komputer Anda:
    ```bash
-   git clone https://github.com/username/simulasi-robot-graf.git
+   git clone https://github.com/b46usf/robot_code.git
    ```
 
 2. Masuk ke direktori proyek:
    ```bash
-   cd simulasi-robot-graf
+   cd robot_code
    ```
 
 3. Instal semua dependensi:
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 4. Jalankan simulasi:
    ```bash
-   python main.py
+   python robot_simulation.py
    ```
 
 ## Penjelasan Kode
