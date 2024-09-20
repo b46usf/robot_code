@@ -12,66 +12,120 @@ def gambar_lapangan():
     ax.set_ylim(0, 100)
     
     # Area HOME
-    area_home = patches.Rectangle((45, 5), 10, 10, linewidth=2, edgecolor='black', facecolor='white')
+    area_home = patches.Rectangle((45, 2.5), 10, 10, linewidth=2, edgecolor='black', facecolor='white')
     ax.add_patch(area_home)
-    ax.text(50, 10, 'HOME', horizontalalignment='center', verticalalignment='center', fontsize=12, fontweight='bold')
+    ax.text(50, 5, 'HOME', horizontalalignment='center', verticalalignment='center', fontsize=12, fontweight='bold')
     
     # Kotak berwarna di atas (mewakili camp atau target)
-    kotak_atas = {'cyan': (50, 85), 'yellow': (85, 85), 'green': (15, 85)}
+    kotak_atas = {'cyan': (50, 92), 'green': (85, 92), 'yellow': (15, 92)}
     for warna, (x, y) in kotak_atas.items():
         kotak = patches.Rectangle((x-5, y-5), 10, 10, linewidth=2, edgecolor='black', facecolor=warna)
         ax.add_patch(kotak)
     
     # Garis merah horizontal yang terbelah
-    garis_merah_kiri = patches.Rectangle((10, 60), 30, 5, linewidth=2, edgecolor='black', facecolor='red')
+    garis_merah_kiri = patches.Rectangle((10, 70), 30, 5, linewidth=2, edgecolor='black', facecolor='red')
     ax.add_patch(garis_merah_kiri)
     
-    garis_merah_kanan = patches.Rectangle((60, 60), 30, 5, linewidth=2, edgecolor='black', facecolor='red')
+    garis_merah_kanan = patches.Rectangle((60, 70), 30, 5, linewidth=2, edgecolor='black', facecolor='red')
     ax.add_patch(garis_merah_kanan)
     
-    ax.text(50, 62, 'Celah', horizontalalignment='center', verticalalignment='center', fontsize=10, fontweight='bold')
+    ax.text(50, 72.5, 'Celah', horizontalalignment='center', verticalalignment='center', fontsize=10, fontweight='bold')
     
     # Tiga kotak membentuk segitiga sama sisi di bagian tengah
     x_center = 50
-    y_center = 40
-    ax.add_patch(patches.Rectangle((x_center - 5, y_center), 10, 10, linewidth=2, edgecolor='black', facecolor='yellow'))
-    
-    ax.add_patch(patches.Rectangle((x_center - 15 - 5, y_center - 5), 10, 10, linewidth=2, edgecolor='black', facecolor='green'))
-    
-    ax.add_patch(patches.Rectangle((x_center + 15 - 5, y_center - 5), 10, 10, linewidth=2, edgecolor='black', facecolor='cyan'))
+    y_center = 55
+    ax.add_patch(patches.Rectangle((x_center - 4, y_center + 3), 8, 8, linewidth=2, edgecolor='black', facecolor='yellow')) 
+    ax.add_patch(patches.Rectangle((x_center - 19, y_center - 12), 8, 8, linewidth=2, edgecolor='black', facecolor='green'))
+    ax.add_patch(patches.Rectangle((x_center + 11, y_center - 12), 8, 8, linewidth=2, edgecolor='black', facecolor='cyan'))
     
     # Kotak merah dan kuning berada di samping kanan dan kiri secara vertikal
-    ax.add_patch(patches.Rectangle((5 - 5, 50 - 5), 10, 10, linewidth=2, edgecolor='black', facecolor='red'))
-    ax.add_patch(patches.Rectangle((95 - 5, 50 - 5), 10, 10, linewidth=2, edgecolor='black', facecolor='yellow'))
+    ax.add_patch(patches.Rectangle((0, 47), 7, 7, linewidth=2, edgecolor='black', facecolor='red'))
+    ax.add_patch(patches.Rectangle((0, 37), 7, 7, linewidth=2, edgecolor='black', facecolor='cyan'))
+    ax.add_patch(patches.Rectangle((0, 27), 7, 7, linewidth=2, edgecolor='black', facecolor='yellow'))
+    ax.add_patch(patches.Rectangle((0, 17), 7, 7, linewidth=2, edgecolor='black', facecolor='green'))
+
+    ax.add_patch(patches.Rectangle((93, 47), 7, 7, linewidth=2, edgecolor='black', facecolor='yellow'))
+    ax.add_patch(patches.Rectangle((93, 37), 7, 7, linewidth=2, edgecolor='black', facecolor='green'))
+    ax.add_patch(patches.Rectangle((93, 27), 7, 7, linewidth=2, edgecolor='black', facecolor='red'))
+    ax.add_patch(patches.Rectangle((93, 17), 7, 7, linewidth=2, edgecolor='black', facecolor='cyan'))
     
     # Menggambar konektor garis hitam dari HOME ke kotak merah dan kuning
     konektor = [
         # Konektor HOME ke titik cabang
-        ((50, 10), (50, 20)),  # Vertikal dari HOME ke titik cabang
+        ((50, 10), (50, 15)),  # Vertikal dari HOME ke titik cabang
         
-        # Konektor dari titik cabang ke kotak merah
-        ((50, 20), (5, 20)),   # Horizontal dari titik cabang ke kotak merah
-        ((5, 20), (5, 50)),    # Vertikal dari titik cabang ke kotak merah
+        # Konektor dari titik home belok ke kiri
+        ((50, 15), (20, 15)),   # Horizontal dari titik cabang ke kiri
+        ((20, 15), (20, 30)),    # Vertikal dari titik cabang ke atas
+        ((20, 30), (50, 30)),  # Horizontal dari titik atas ke kanan
+
+        # Konektor dari titik home belok ke kanan
+        ((50, 15), (80, 15)),  # Horizontal dari titik cabang ke kanan
+        ((80, 15), (80, 30)),  # Vertikal dari titik cabang ke atas
+        ((80, 30), (50, 30)),  # Horizontal dari titik atas ke kiri
+
+        # Konektor dari titik cabang ke kotak hijau
+        ((35, 30), (35, 47.5)),  # Vertikal dari titik cabang ke kotak hijau
+
+        # Konektor dari titik cabang ke kotak cyan
+        ((65, 30), (65, 47.5)),  # Vertikal dari titik cabang ke kotak hijau
         
         # Konektor dari titik cabang ke kotak kuning
-        ((50, 20), (95, 20)),  # Horizontal dari titik cabang ke kotak kuning
-        ((95, 20), (95, 50)),  # Vertikal dari titik cabang ke kotak kuning
+        ((50, 30), (50, 62)),  # Vertikal dari titik cabang ke kotak kuning 
         
-        # Konektor horizontal dari titik cabang ke kotak hijau
-        ((50, 20), (15, 20)),  # Horizontal dari titik cabang ke kotak hijau
+        # Konektor dari titik cabang kotak kuning ke titik cabang camp
+        ((50, 72), (50, 77)),  # Horizontal dari titik cabang ke kotak hijau
         
-        # Konektor horizontal dari titik cabang ke kotak cyan
-        ((50, 20), (85, 20)),  # Horizontal dari titik cabang ke kotak cyan
+        # Konektor vertikal dari titik cabang ke kotak kuning
+        ((50, 77), (15, 77)),  # Horizontal dari titik cabang ke kotak kuning
+        ((15,77), (15,90)),    # Vertikal dari titik cabang ke kotak kuning
+
+        # Konektor vertikal dari titik cabang ke kotak cyan
+        ((50, 77), (50,90)),  # Horizontal dari titik cabang ke kotak kuning
+        ((15,77), (15,90)),    # Vertikal dari titik cabang ke kotak kuning
+
+        # Konektor vertikal dari titik cabang ke kotak hijau
+        ((50, 77), (85, 77)),  # Horizontal dari titik cabang ke kotak kuning
+        ((85,77), (85,90)),    # Vertikal dari titik cabang ke kotak kuning
+
+        # Konektor dari kotak kuning ke titik diagonal
+        ((50, 53), (40, 62.5)), # Diagonal dari titik cabang mengelilingi kuning
+        ((50, 53), (60, 62.5)), # Diagonal dari titik cabang mengelilingi kuning
+        ((40, 62.5), (50, 72)), # Diagonal dari titik cabang mengelilingi kuning
+        ((60, 62.5), (50, 72)), # Diagonal dari titik cabang mengelilingi kuning
+
+        # Konektor dari titik cabang ke titik kotak logistik hijau (kiri)
+        ((4, 20), (20, 20)),  # Horizontal dari titik cabang ke hijau
+        
+        # Konektor dari titik cabang ke titik kotak logistik kuning (kiri)
+        ((20, 30), (4, 30)), # Horizontal dari titik cabang ke kuning
+
+        # Konektor dari titik cabang ke titik kotak logistik cyan (kiri)
+        ((20, 30), (20, 40)),  # Vertikal dari titik cabang ke atas
+        ((20, 40), (4, 40)), # Horizontal dari titik cabang ke cyan
+
+        # Konektor dari titik cabang ke titik kotak logistik cyan (kanan)
+        ((80, 20), (96, 20)),  # Horizontal dari titik cabang ke cyan
+        
+        # Konektor dari titik cabang ke titik kotak logistik hijau (kanan)
+        ((80, 30), (80, 40)),  # Vertikal dari titik cabang ke atas
+        ((80, 40), (96, 40)), # Horizontal dari titik cabang ke hijau
+
+        # Konektor dari titik cabang ke titik kotak logistik kuning (kanan)
+        ((80, 40), (80, 50)),  # Vertikal dari titik cabang ke atas
+        ((80, 50), (96, 50)), # Horizontal dari titik cabang ke kuning
+        
+
     ]
     
     for (x_start, y_start), (x_end, y_end) in konektor:
         ax.plot([x_start, x_end], [y_start, y_end], color='black', linestyle='-', linewidth=1)
     
     # Menambahkan konektor horizontal dari percabangan grid 40 ke kotak hijau
-    ax.plot([35, 5], [40, 40], color='black', linestyle='-', linewidth=1)
+    #ax.plot([35, 5], [40, 40], color='black', linestyle='-', linewidth=1)
     
     # Menambahkan konektor horizontal dari percabangan grid 40 ke kotak cyan
-    ax.plot([65, 95], [40, 40], color='black', linestyle='-', linewidth=1)
+    #ax.plot([65, 95], [40, 40], color='black', linestyle='-', linewidth=1)
     
     # Menonaktifkan grid
     ax.grid(False)
