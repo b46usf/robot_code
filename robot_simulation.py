@@ -289,5 +289,5 @@ timer_text = ax.text(70, 95, 'Timer: 0 s', horizontalalignment='center', fontsiz
 
 draw_field(ax)
 draw_objects(ax)
-ani = FuncAnimation(fig, update, frames=len(robot_path)+ 5, interval=1000, blit=True, repeat=False)
+ani = FuncAnimation(fig, update, frames=len(robot_path)+ 5, interval=100, blit=True, repeat=False)
 plt.show()
