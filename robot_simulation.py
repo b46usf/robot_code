@@ -199,7 +199,7 @@ robot_path = [
     # lanjut dari disaster zone cyan ke titik diagonal
     (65, 30), (50, 30), (50, 53),
     # lanjut dari titik diagonal ke camp zone cyan
-     (40, 62.5), (50, 70), (50, 90),
+    (40, 62.5), (50, 70), (50, 90),
     # lanjut dari camp zone cyan ke disaster zone green
     (50, 70), (40, 62.5), (50, 53), (50, 30), (35, 30), (35, 47.5),
     # lanjut dari disaster zone green ke camp zone green
@@ -220,7 +220,7 @@ robot_path = [
     # lanjut dari camp zone yellow ke logistic zone green
     (15, 77), (50, 77), (50, 70), (40, 62.5), (50, 53), (50, 30), (20, 30), (20, 20), (4, 20),
     # lanjut dari logistic zone green ke camp zone green
-    (20, 20), (20, 30), (50, 30), (50, 50, 53), (40, 62.5), (50, 70), (50, 77), (85, 77), (85, 90),
+    (20, 20), (20, 30), (50, 30), (50, 53), (40, 62.5), (50, 70), (50, 77), (85, 77), (85, 90),
     # lanjut dari camp zone green ke right logistic zone yellow
     (85, 77), (50, 77), (50, 70), (40, 62.5), (50, 53), (50, 30), (80, 30), (80, 50), (96, 50),
     # lanjut dari logistic zone yellow ke camp zone yellow
