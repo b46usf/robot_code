@@ -196,55 +196,42 @@ def check_arrival_home(frame):
 robot_path = [
     # mulai dari home ke disaster zone terdekat cyan
     (50, 10), (50, 15), (80, 15), (80, 30), (65, 30), (65, 47.5),
-    # lanjut dari disaster zone cyan ke disaster zone green
-    (65, 30), (35, 30), (35, 47.5),
-    # lanjut dari disaster zone green ke disaster zone yellow
-    (35, 30), (50, 30), (50, 62),
-    # lanjut dari disaster zone yellow ke camp zone yellow
-    (50, 53), (40, 62.5), (50, 72), (50, 77), (15, 77), (15, 90),
-    # lanjut dari camp zone yellow ke camp zone green
-    (15, 77), (85, 77), (85, 90),
-    # lanjut dari camp zone green ke camp zone cyan
-    (85, 77), (50, 77), (50, 90),
+    # lanjut dari disaster zone cyan ke titik diagonal
+    (65, 30), (50, 30), (50, 53),
+    # lanjut dari titik diagonal ke camp zone cyan
+     (40, 62.5), (50, 70), (50, 90),
+    # lanjut dari camp zone cyan ke disaster zone green
+    (50, 70), (40, 62.5), (50, 53), (50, 30), (35, 30), (35, 47.5),
+    # lanjut dari disaster zone green ke camp zone green
+    (35, 30), (50, 30), (50, 53), (40, 62.5), (50, 70), (50, 77), (85, 77), (85, 90),
+    # lanjut dari camp zone green ke disaster zone yellow
+    (85, 77), (50, 77), (50, 70), (40, 62.5), (50, 53), (50, 62),
     # the key of pola jalur 6.3.3
-    # lanjut dari camp zone cyan ke disaster zone sebelah kiri
-    (50, 72), (40, 62.5), (50, 53), (50, 30),
-    # lanjut dari disaster zone ke logistic zone cyan
-    (20, 30), (20, 40), (4, 40),
-    # lanjut dari logistic zone cyan ke logistic zone green
-    (20, 40), (20, 20), (4, 20),
-    # lanjut dari logistic zone green ke logistic zone yellow
-    (20, 20), (20, 30), (4, 30),
-    # lanjut dari logistic zone yellow ke disaster zone
-    (50, 30), (50, 53), (40, 62.5), (50, 72),
-    # lanjut dari disaster zone ke camp zone yellow
-    (50, 77), (15, 77), (15, 90),
-    # lanjut dari camp zone yellow ke camp zone green
-    (15, 77), (85, 77), (85, 90),
-    # lanjut dari camp zone green ke camp zone cyan
-    (85, 77), (50, 77), (50, 90),
-    # lanjut dari camp zone cyan ke disaster zone sebelah kanan
-    (50, 72), (60, 62.5), (50, 53), (50, 30),
-    # lanjut dari disaster zone ke logistic zone cyan
-    (80, 30), (80, 20), (96, 20),
-    # lanjut dari logistic zone cyan ke logistic zone yellow
-    (80, 20), (80, 50), (96, 50),
-    # lanjut dari logistic zone yellow ke logistic zone green
-    (80, 50), (80, 40), (96, 40),
-    # the key of pola jalur 4.3.3.3
-    # lanjut dari logistic zone green ke disaster zone
-    (80, 40), (80, 30), (50, 30), (50, 53), (60, 62.5), (50, 72),
-    # lanjut dari disaster zone ke camp zone green
-    (50, 77), (85, 77), (85, 90),
-    # lanjut dari camp zone green ke camp zone yellow
-    (85, 77), (15, 77), (15, 90),
-    # lanjut dari camp zone yellow ke camp zone cyan
-    (15, 77), (50, 77), (50, 90),
-    # the key of pola jalur 6.3.3.3
-    # lanjut dari camp zone cyan ke disaster zone
-    (50, 72), (40, 62.5), (50, 53), (50, 30),
-    # lanjut dari disaster zone ke home
-    (20, 30), (20, 15), (50, 15), (50, 10),
+    # lanjut dari disaster zone yellow ke camp zone yellow
+    (50, 53), (40, 62.5), (50, 70), (50, 77), (15, 77), (15, 90),
+    # lanjut dari camp zone yellow ke logistic zone cyan
+    (15, 77), (50, 77), (50, 70), (40, 62.5), (50, 53), (50, 30), (20, 30), (20, 40), (4, 40),
+    # lanjut dari logistic zone cyan ke camp zone cyan
+    (20, 40), (20, 30), (50, 30), (50, 53), (40, 62.5), (50, 70), (50, 90),
+    # lanjut dari camp zone cyan ke logistic zone yellow
+    (50, 70), (40, 62.5), (50, 53), (50, 30), (4, 30), 
+    # lanjut dari logistic zone yellow ke camp zone yellow
+    (50, 30), (50, 53), (40, 62.5), (50, 70), (50, 77), (15, 77), (15, 90), 
+    # lanjut dari camp zone yellow ke logistic zone green
+    (15, 77), (50, 77), (50, 70), (40, 62.5), (50, 53), (50, 30), (20, 30), (20, 20), (4, 20),
+    # lanjut dari logistic zone green ke camp zone green
+    (20, 20), (20, 30), (50, 30), (50, 50, 53), (40, 62.5), (50, 70), (50, 77), (85, 77), (85, 90),
+    # lanjut dari camp zone green ke right logistic zone yellow
+    (85, 77), (50, 77), (50, 70), (40, 62.5), (50, 53), (50, 30), (80, 30), (80, 50), (96, 50),
+    # lanjut dari logistic zone yellow ke camp zone yellow
+    (80, 50), (80, 30), (50, 30), (50, 53), (40, 62.5), (50, 70), (50, 77), (15, 77), (15, 90),
+    # lanjut dari camp zone yellow ke right logistic zone green
+    (15, 77), (50, 77), (50, 70), (40, 62.5), (50, 53), (50, 30), (80, 30), (80, 40), (96, 40),
+    # lanjut dari right logistic zone green ke camp zone green
+    (96, 40), (80, 40), (80, 30), (50, 30), (50, 53), (60, 62.5), (50, 72), (50, 77), (85, 77), (85, 90), 
+    # lanjut dari camp zone hijau ke logistic zone cyan
+    (85, 90), (85, 77), (50, 77), (50, 72), (60, 62.5), (50, 53), (50, 30), (80, 30), (80, 20), (96, 20),
+ 
 ]
 
 robot_arrived_home = False
