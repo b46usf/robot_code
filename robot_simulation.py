@@ -186,7 +186,7 @@ def check_arrival_home(frame):
             ani.event_source.stop()  # Hentikan animasi setelah countdown selesai
             stop_timer_countdown = None
             plt.pause(5)  # Menunggu selama 5 detik
-            plt.close()  # Menutup jendela visualisasi
+            # plt.close()  # Menutup jendela visualisasi
     else:
         elapsed_time += 1
 
@@ -196,53 +196,7 @@ robot_path = [
     (50, 10), (50, 23), (80, 23), (80, 32), (62.5, 32), (62.5, 45),
     # lanjut dari disaster zone cyan ke camp zone cyan
     (62.5, 32), (50, 32), (50, 45), (60, 52.5), (50, 63), (50, 95),
-    # lanjut dari disaster zone green ke disaster zone yellow
-    (35, 30), (50, 30), (50, 62),
-    # lanjut dari disaster zone yellow ke camp zone yellow
-    (50, 53), (40, 62.5), (50, 72), (50, 77), (15, 77), (15, 90),
-    # lanjut dari camp zone yellow ke camp zone green
-    (15, 77), (85, 77), (85, 90),
-    # lanjut dari camp zone green ke camp zone cyan
-    (85, 77), (50, 77), (50, 90),
-    # the key of pola jalur 6.3.3
-    # lanjut dari camp zone cyan ke disaster zone sebelah kiri
-    (50, 72), (40, 62.5), (50, 53), (50, 30),
-    # lanjut dari disaster zone ke logistic zone cyan
-    (20, 30), (20, 40), (4, 40),
-    # lanjut dari logistic zone cyan ke logistic zone green
-    (20, 40), (20, 20), (4, 20),
-    # lanjut dari logistic zone green ke logistic zone yellow
-    (20, 20), (20, 30), (4, 30),
-    # lanjut dari logistic zone yellow ke disaster zone
-    (50, 30), (50, 53), (40, 62.5), (50, 72),
-    # lanjut dari disaster zone ke camp zone yellow
-    (50, 77), (15, 77), (15, 90),
-    # lanjut dari camp zone yellow ke camp zone green
-    (15, 77), (85, 77), (85, 90),
-    # lanjut dari camp zone green ke camp zone cyan
-    (85, 77), (50, 77), (50, 90),
-    # lanjut dari camp zone cyan ke disaster zone sebelah kanan
-    (50, 72), (60, 62.5), (50, 53), (50, 30),
-    # lanjut dari disaster zone ke logistic zone cyan
-    (80, 30), (80, 20), (96, 20),
-    # lanjut dari logistic zone cyan ke logistic zone yellow
-    (80, 20), (80, 50), (96, 50),
-    # lanjut dari logistic zone yellow ke logistic zone green
-    (80, 50), (80, 40), (96, 40),
-    # the key of pola jalur 4.3.3.3
-    # lanjut dari logistic zone green ke disaster zone
-    (80, 40), (80, 30), (50, 30), (50, 53), (60, 62.5), (50, 72),
-    # lanjut dari disaster zone ke camp zone green
-    (50, 77), (85, 77), (85, 90),
-    # lanjut dari camp zone green ke camp zone yellow
-    (85, 77), (15, 77), (15, 90),
-    # lanjut dari camp zone yellow ke camp zone cyan
-    (15, 77), (50, 77), (50, 90),
-    # the key of pola jalur 6.3.3.3
-    # lanjut dari camp zone cyan ke disaster zone
-    (50, 72), (40, 62.5), (50, 53), (50, 30),
-    # lanjut dari disaster zone ke home
-    (20, 30), (20, 15), (50, 15), (50, 10),
+    
 ]
 
 robot_arrived_home = False
@@ -265,7 +219,7 @@ object_colors = {
 
 # Kordinat objek dari Disaster Zone dan Logistic Zone
 pickup_coordinates = {
-    'cyan': (65, 47.5),     # Disaster Zone Cyan
+    'cyan': (62.5, 45),     # Disaster Zone Cyan
     'green': (35, 47.5),    # Disaster Zone Green
     'yellow': (50, 62),     # Disaster Zone Yellow
     'cyan_left': (4, 40),   # Logistic Zone Kiri Cyan
