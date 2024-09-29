@@ -10,7 +10,7 @@ def draw_home_zone(ax):
 
 # Fungsi untuk menggambar camp zone
 def draw_camp_zones(ax):
-    camp_zones = {'cyan': (50, 92), 'green': (15, 92), 'yellow': (85, 92)}
+    camp_zones = {'cyan': (50, 95), 'green': (15, 95), 'yellow': (85, 95)}
     for color, (x, y) in camp_zones.items():
         box = patches.Rectangle((x - 5, y - 5), 10, 10, linewidth=2, edgecolor='black', facecolor=color)
         ax.add_patch(box)
@@ -26,97 +26,53 @@ def draw_red_gaps(ax):
 # Fungsi untuk menggambar disaster zone
 def draw_disaster_zones(ax):
     disaster_zones = [
-        (46, 58, 'yellow'),  # Yellow zone
-        (61, 43, 'green'),   # Green zone
-        (31, 43, 'cyan')     # Cyan zone
+        (46.5, 50, 'yellow'),# Yellow zone
+        (34, 42, 'green'),   # Green zone
+        (59, 42, 'cyan')     # Cyan zone
     ]
     for x, y, color in disaster_zones:
-        ax.add_patch(patches.Rectangle((x, y), 8, 8, linewidth=2, edgecolor='black', facecolor=color))
+        ax.add_patch(patches.Rectangle((x, y), 7, 7, linewidth=2, edgecolor='black', facecolor=color))
 
 # Fungsi untuk menggambar kotak logistik
 def draw_logistic_boxes(ax):
-    left_boxes = [('red', 27), ('cyan', 17), ('yellow', 47), ('green', 37)]
-    right_boxes = [('yellow', 27), ('green', 17), ('red', 47), ('cyan', 37)]
+    left_boxes = [('red', 29), ('cyan', 20), ('yellow', 47), ('green', 38)]
+    right_boxes = [('yellow', 29), ('green', 20), ('red', 47), ('cyan', 38)]
     
     for color, y in left_boxes:
-        ax.add_patch(patches.Rectangle((0, y), 7, 7, linewidth=2, edgecolor='black', facecolor=color))
+        ax.add_patch(patches.Rectangle((0, y), 6, 6, linewidth=2, edgecolor='black', facecolor=color))
     for color, y in right_boxes:
-        ax.add_patch(patches.Rectangle((93, y), 7, 7, linewidth=2, edgecolor='black', facecolor=color))
+        ax.add_patch(patches.Rectangle((94, y), 6, 6, linewidth=2, edgecolor='black', facecolor=color))
 
 # Fungsi untuk menggambar konektor/jalur
 def draw_connectors(ax):
     connectors = [
-        # Konektor HOME ke titik cabang
         ((50, 10), (50, 23)),  # Vertikal dari HOME ke titik cabang
-        
-        # konektor DARI CABANG AWAL HOME BELOK KANAN
         ((50, 23), (94, 23)),  # HORIZONTAL BELOK KANAN
-        
-        # konektor DARI PERTIGAAN SATU BELOK KIRI
         ((80, 23), (80, 41)),  # VERTIKAL BELOK KIRI
-       
-        # konektor DARI PERTIGAAN DUA BELOK KIRI
         ((94, 32), (20, 32)),  # HORIZONTAL BELOK KIRI
-        
-        # konektor DARI PERTIGAAN TIGA BELOK KANAN
         ((50, 32), (50, 50)),  # HORIZONTAL NAIK KEATAS
-        
-         # konektor DARI PERTIGAAN EMPAT BELOK KANAN
-         ((50, 45), (60, 52.5)),  # DIAGONAL NAIK KEATAS
-         
-         # konektor DARI PERTIGAAN EMPAT BELOK KANAN
-         ((50, 45), (40, 52.5)),  # DIAGONAL NAIK KEATAS
-         
-         # konektor DARI PERTIGAAN LIMA BELOK KIRI
-         ((40, 52.5), (50, 63)),  # DIAGONAL NAIK KEATAS
-         
-         # konektor DARI PERTIGAAN LIMA BELOK KIRI
-         ((60, 52.5), (50, 63)),  # DIAGONAL NAIK KEATAS
-         
-         # konektor DARI PERTIGAAN ENAM BELOK KANAN
-         ((50, 63), (50, 90)),  # VERTIKAL NAIK KEATAS
-         
-        # konektor DARI PERTIGAAN TUJUH BELOK KANAN
-         ((50, 86), (85, 86)),  # HORIZONTAL KE KANAN
-         
-         # konektor DARI PERTIGAAN DELAPAN BELOK KIRI
-         ((85, 86), (85, 90)),  # VERTIKAL KE ATAS
-         
-         # konektor DARI PERTIGAAN SEMBILAN BELOK KANAN
-         ((50, 79), (85, 79)),  # HORIZONTAL KE KANAN
-         
-          # konektor DARI PERTIGAAN SEPULUH BELOK KANAN
-         ((85, 79), (85, 86)),  # VERTIKAL KE KIRI
-         
-         # konektor DARI PERTIGAAN SEBELAS BELOK KIRI
-        ((38.5, 32), (38.5, 42)),  # VERTIKAL KE ATAS
-        
-        # konektor DARI PERTIGAAN DUA BELAS BELOK KANAN
+        ((50, 45), (60, 52.5)),  # DIAGONAL NAIK KEATAS
+        # ((50, 45), (40, 52.5)),  # DIAGONAL NAIK KEATAS
+        # ((40, 52.5), (50, 63)),  # DIAGONAL NAIK KEATAS
+        ((60, 52.5), (50, 63)),  # DIAGONAL NAIK KEATAS
+        ((50, 63), (50, 90)),  # VERTIKAL NAIK KEATAS
+        ((50, 86), (85, 86)),  # HORIZONTAL KE KANAN
+        ((85, 86), (85, 90)),  # VERTIKAL KE ATAS
+        ((50, 79), (85, 79)),  # HORIZONTAL KE KANAN
+        ((85, 79), (85, 86)),  # VERTIKAL KE KIRI
+        ((37.5, 32), (37.5, 42)),  # VERTIKAL KE ATAS
         ((62.5, 32), (62.5, 42)),  # VERTIKAL KE ATAS
-        
-        # konektor DARI PERTIGAAN TUJUH BELOK KIRI
-         ((15, 86), (85, 86)),  # HORIZONTAL KE KIRI
-         
-         # konektor DARI PERTIGAAN TIGA BELAS BELOK KIRI
-         ((15, 79), (85, 79)),  # HORIZONTAL KE KIRI
-         
-         # konektor DARI PERTIGAAN EMPAT BELAS BELOK KIRI
-         ((15, 79), (15, 90)),  # VERTIKAL KE BAWAH
-         
-          # konektor DARI PERTIGAAN LIMA BELAS BELOK KIRI
-         ((80, 41), (94, 41)),  # VERTIKAL KE ATAS
-         
-          # konektor DARI PERAPATAN SATU BELOK KIRI
+        ((15, 86), (85, 86)),  # HORIZONTAL KE KIRI
+        ((15, 79), (85, 79)),  # HORIZONTAL KE KIRI
+        ((15, 79), (15, 90)),  # VERTIKAL KE BAWAH
+        ((80, 41), (94, 41)),  # VERTIKAL KE ATAS
         ((20, 50), (20, 23)),  # BELOK KANAN KIRI
-        
-         # konektor DARI PERAPATAN DUA BELOK KANAN
         ((20, 23), (6, 23)),  # BELOK KANAN
+        ((20, 41), (6, 41)),  # HORIZONTAL KE KIRI
+        ((20, 50), (6, 50)),  # HORIZONTAL KE KIRI
+        # ((80, 30), (80, 40)),    # Vertikal dari kotak hijau kanan
+        # ((80, 40), (96, 40)),    # Horizontal dari kotak hijau kanan
         
-        # konektor DARI PERTIGAAN ENAM BELAS BELOK KIRI
-         ((20, 41), (6, 41)),  # HORIZONTAL KE KIRI
-         
-         # konektor DARI PERTIGAAN TUJUH BELAS BELOK KIRI
-         ((20, 50), (6, 50)),  # HORIZONTAL KE KIRI      
     ]
     for (x_start, y_start), (x_end, y_end) in connectors:
         ax.plot([x_start, x_end], [y_start, y_end], color='black', linestyle='-', linewidth=1)
@@ -134,19 +90,19 @@ def draw_field(ax):
 
 # Koordinat objek di disaster zone
 disaster_objects = [
-    (50, 62),   # Kotak di Disaster Zone Yellow
-    (35, 47.5), # Kotak di Disaster Zone Green
-    (65, 47.5)  # Kotak di Disaster Zone Cyan
+    (50, 53),   # Kotak di Disaster Zone Yellow
+    (37.5, 45), # Kotak di Disaster Zone Green
+    (62.5, 45)  # Kotak di Disaster Zone Cyan
 ]
 
 # Koordinat objek di logistic zone
 logistic_objects = [
-    (4, 40),   # Kotak kiri atas - Logistic Zone Cyan
-    (4, 30),   # Kotak kiri tengah - Logistic Zone Yellow
-    (4, 20),   # Kotak kiri bawah - Logistic Zone Green
-    (96, 50),  # Kotak kanan atas - Logistic Zone Yellow
-    (96, 40),  # Kotak kanan tengah - Logistic Zone Green
-    (96, 20)   # Kotak kanan bawah - Logistic Zone Cyan
+    (3, 23),   # Kotak kiri atas - Logistic Zone Cyan
+    (3, 50),   # Kotak kiri tengah - Logistic Zone Yellow
+    (3, 41),   # Kotak kiri bawah - Logistic Zone Green
+    (97, 32),  # Kotak kanan atas - Logistic Zone Yellow
+    (97, 23),  # Kotak kanan tengah - Logistic Zone Green
+    (97, 41)   # Kotak kanan bawah - Logistic Zone Cyan
 ]
 
 # Fungsi untuk menggambar objek di zona tertentu
@@ -237,9 +193,9 @@ def check_arrival_home(frame):
 # Inisialisasi variabel global
 robot_path = [
     # mulai dari home ke disaster zone terdekat cyan
-    (50, 10), (50, 15), (80, 15), (80, 30), (65, 30), (65, 47.5),
-    # lanjut dari disaster zone cyan ke disaster zone green
-    (65, 30), (35, 30), (35, 47.5),
+    (50, 10), (50, 23), (80, 23), (80, 32), (62.5, 32), (62.5, 45),
+    # lanjut dari disaster zone cyan ke camp zone cyan
+    (62.5, 32), (50, 32), (50, 45), (60, 52.5), (50, 63), (50, 95),
     # lanjut dari disaster zone green ke disaster zone yellow
     (35, 30), (50, 30), (50, 62),
     # lanjut dari disaster zone yellow ke camp zone yellow
@@ -335,7 +291,7 @@ robot = patches.Circle((50, 10), 2, color='blue')
 ax.add_patch(robot)
 
 # Menambahkan judul dan timer
-ax.set_title("Simulasi Lapangan 1", fontsize=14, fontweight='bold')
+ax.set_title("Simulasi Lapangan 2", fontsize=14, fontweight='bold')
 timer_text = ax.text(70, 95, 'Timer: 0 s', horizontalalignment='center', fontsize=12)
 
 draw_field(ax)
